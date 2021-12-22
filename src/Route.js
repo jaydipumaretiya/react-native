@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Login from './screens/login/Login';
 import SlelectTruck from './screens/truck/SlelectTruck';
 import MorningCheckScreen from './screens/check/MorningCheckScreen';
+import Expenses from './screens/expenses/Expenses';
 
 const Stack = createNativeStackNavigator();
 
@@ -37,15 +38,16 @@ export default function Route() {
           headerBackVisible: true,
         }}
       />
-      {/* <Stack.Screen
-        name="homeScreen"
-        component={HomeScreen}
-        options={({route}) => ({
-          title: route.params.name,
-          headerBackVisible: true,
-        })}
-      />
       <Stack.Screen
+        name="expenses"
+        component={Expenses}
+        options={{
+          title: 'Expenses',
+          headerTitleAlign: 'center',
+          headerBackVisible: true,
+        }}
+      />
+      {/*  <Stack.Screen
         name="listScreen"
         component={ListScreen}
         options={{
