@@ -66,5 +66,11 @@
 		<string>Roboto-Thin.ttf</string>
 		<string>Roboto-ThinItalic.ttf</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need access to photo library so that photos can be selected</string>
+	<key>NSCameraUsageDescription</key>
+	<string>We need access to photo library so that photos can be selected</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>We need access to photo library so that photos can be selected</string>
 </dict>
 </plist>

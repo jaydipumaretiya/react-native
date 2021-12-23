@@ -34,8 +34,11 @@ export default function SlelectTruck({navigation}) {
   };
 
   var radio_props = [
-    {label: 'param1', value: 0},
-    {label: 'param2', value: 1},
+    {label: 'GJ 05 2525', value: 0},
+    {label: 'GJ 05 2222', value: 1},
+    {label: 'GJ 01 9458', value: 2},
+    {label: 'GJ 05 8547', value: 3},
+    {label: 'GJ 03 6471', value: 4},
   ];
 
   // var RadioButtonProject = React.createClass({
@@ -99,7 +102,7 @@ export default function SlelectTruck({navigation}) {
                       onPress={value => {
                         setTruck({value: value});
                       }}
-                      labelStyle={{fontSize: 16, color: '#2ecc71'}}
+                      labelStyle={{fontSize: 16, color: '#000'}}
                       labelWrapStyle={{}}
                     />
                   </RadioButton>

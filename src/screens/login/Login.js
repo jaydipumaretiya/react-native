@@ -37,19 +37,6 @@ export default function Login({navigation}) {
               onValueChange={value => console.log(value)}
               items={items}
             />
-            {/* <Picker
-              onValueChange={(itemValue, itemIndex) =>
-                setSelectedValue(itemValue)
-              }>
-              <Picker.Item label="Liam" value="Liam" />
-              <Picker.Item label="Anton" value="Anton" />
-              <Picker.Item label="Audrius" value="Audrius" />
-              <Picker.Item label="Ramunas" value="Ramunas" />
-              <Picker.Item label="Sonny" value="Sonny" />
-              <Picker.Item label="Gregorz" value="Gregorz" />
-              <Picker.Item label="Hubert" value="Hubert" />
-              <Picker.Item label="Z Mikey Office" value="Z Mikey Office" />
-            </Picker> */}
           </View>
 
           <View style={LoginStyles.inputView}>
