@@ -5,6 +5,7 @@ import Login from './screens/login/Login';
 import SlelectTruck from './screens/truck/SlelectTruck';
 import MorningCheckScreen from './screens/check/MorningCheckScreen';
 import Expenses from './screens/expenses/Expenses';
+import SelectPhoto from './screens/photo/SelectPhoto';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,8 +17,10 @@ export default function Route() {
         component={Login}
         options={{
           title: 'Login',
-          headerBackVisible: true,
+          headerBackTitle: '',
           headerTitleAlign: 'center',
+          headerBackVisible: true,
+          headerShown: false
         }}
       />
       <Stack.Screen
@@ -25,6 +28,7 @@ export default function Route() {
         component={SlelectTruck}
         options={{
           title: 'Select Truck',
+          headerBackTitle: '',
           headerTitleAlign: 'center',
           headerBackVisible: true,
         }}
@@ -34,6 +38,7 @@ export default function Route() {
         component={MorningCheckScreen}
         options={{
           title: 'Morning Check',
+          headerBackTitle: '',
           headerTitleAlign: 'center',
           headerBackVisible: true,
         }}
@@ -43,20 +48,22 @@ export default function Route() {
         component={Expenses}
         options={{
           title: 'Expenses',
+          headerBackTitle: '',
+          headerTitleAlign: 'center',
+          headerBackVisible: true,
+        }}
+      />
+      <Stack.Screen
+        name="selectPhoto"
+        component={SelectPhoto}
+        options={{
+          title: 'Select Photo',
+          headerBackTitle: '',
           headerTitleAlign: 'center',
           headerBackVisible: true,
         }}
       />
       {/*  <Stack.Screen
-        name="listScreen"
-        component={ListScreen}
-        options={{
-          title: 'List of Data',
-          headerBackVisible: true,
-          headerTitleAlign: 'center',
-        }}
-      />
-      <Stack.Screen
         name="addDetails"
         component={AddDetails}
         options={{

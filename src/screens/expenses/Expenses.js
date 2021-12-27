@@ -3,8 +3,6 @@ import {Button, Text, TextInput, View} from 'react-native';
 import ExpensesStyle from './ExpensesStyle';
 import RNPickerSelect from 'react-native-picker-select';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 
 export default function Expenses({navigation}) {
   const [date, setDate] = React.useState(new Date());
@@ -87,39 +85,32 @@ export default function Expenses({navigation}) {
           <Text style={ExpensesStyle.title}>Date</Text>
 
           <View style={ExpensesStyle.box}>
-            <DateTimePicker
-              testID="dateTimePicker"
-              value={date}
-              mode="date"
-              is24Hour={true}
-              display="default"
-              onChange={onChange}
-            />
-            {/* <Text onPress={showDatepicker}>Select Date</Text> */}
+            <Text onPress={showDatepicker}>dateeee</Text>
           </View>
         </View>
         <View style={ExpensesStyle.column}>
           <Text style={ExpensesStyle.title}>Time</Text>
 
           <View style={ExpensesStyle.box}>
+            <Text onPress={showTimepicker}>date</Text>
+          </View>
+
+          {show && (
             <DateTimePicker
               testID="dateTimePicker"
               value={date}
-              mode="time"
+              mode={mode}
               is24Hour={true}
               display="default"
               onChange={onChange}
             />
-            {/* <Text onPress={showTimepicker}>
-              Select Time
-            </Text> */}
-          </View>
+          )}
         </View>
       </View>
 
       <View style={ExpensesStyle.row}>
         <Button
-          onPress={() => navigation.navigator('')}
+          onPress={() => navigation.navigate('selectPhoto')}
           title="Open Sceen for Select photo"
         />
       </View>

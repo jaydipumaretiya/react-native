@@ -17,7 +17,8 @@ import RadioForm, {
 
 export default function SlelectTruck({navigation}) {
   const [visible, setVisible] = React.useState(false);
-  const [truck, setTruck] = React.useState('');
+  const [value3Index, setvalue3Index] = React.useState(0);
+  const [value3, setvalue3] = React.useState(0);
 
   const showDialog = () => {
     setVisible(true);
@@ -78,35 +79,37 @@ export default function SlelectTruck({navigation}) {
                 <Text>Select Truck</Text>
               </TouchableOpacity>
 
-              <RadioForm formHorizontal={false} animation={true} initial={0}>
-                {radio_props.map((obj, i) => (
-                  <RadioButton labelHorizontal={true} key={i}>
-                    <RadioButtonInput
-                      obj={obj}
-                      index={i}
-                      isSelected={setTruck === i}
-                      onPress={value => {
-                        setTruck({value: value});
-                      }}
-                      borderWidth={1}
-                      buttonInnerColor={'#e7ee3c'}
-                      buttonOuterColor={setTruck === i ? '#FF96f3' : '#FF2222'}
-                      buttonSize={10}
-                      buttonOuterSize={20}
-                      buttonStyle={{}}
-                    />
-                    <RadioButtonLabel
-                      obj={obj}
-                      index={i}
-                      labelHorizontal={true}
-                      onPress={value => {
-                        setTruck({value: value});
-                      }}
-                      labelStyle={{fontSize: 16, color: '#000'}}
-                      labelWrapStyle={{}}
-                    />
-                  </RadioButton>
-                ))}
+              <RadioForm formHorizontal={false} animation={true}>
+                {radio_props.map((obj, i) => {
+                  var onPress = (value, index) => {
+                    setvalue3Index(index);
+                    setvalue3(value);
+                  };
+                  return (
+                    <RadioButton labelHorizontal={true} key={i}>
+                      <RadioButtonInput
+                        obj={obj}
+                        index={i}
+                        isSelected={value3Index === i}
+                        onPress={onPress}
+                        buttonInnerColor={'#f39c12'}
+                        buttonOuterColor={
+                          value3Index === i ? '#2196f3' : '#000'
+                        }
+                        buttonSize={10}
+                        buttonStyle={{}}
+                        buttonWrapStyle={{}}
+                      />
+                      <RadioButtonLabel
+                        obj={obj}
+                        index={i}
+                        onPress={onPress}
+                        labelStyle={{fontWeight: 'bold', color: '#2ecc71'}}
+                        labelWrapStyle={{}}
+                      />
+                    </RadioButton>
+                  );
+                })}
               </RadioForm>
             </View>
           </Dialog.Container>
