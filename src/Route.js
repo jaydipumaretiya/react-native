@@ -8,6 +8,8 @@ import Expenses from './screens/expenses/Expenses';
 import SelectPhoto from './screens/photo/SelectPhoto';
 import Jobs from './screens/jobs/Jobs';
 import Loads from './screens/loads/Loads';
+import JobsDetails from './screens/jobs/JobsDetails';
+import MapScreen from './screens/jobs/MapScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -86,7 +88,17 @@ export default function Route() {
           headerShown: false,
         }}
       />
-      {/*<Stack.Screen
+      <Stack.Screen
+        name="jobs_details"
+        component={JobsDetails}
+        options={{
+          title: 'Jobs Details',
+          headerBackVisible: true,
+          headerTitleAlign: 'center',
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
         name="map"
         component={MapScreen}
         options={{
@@ -95,15 +107,6 @@ export default function Route() {
           headerTitleAlign: 'center',
         }}
       />
-      <Stack.Screen
-        name="callAPI"
-        component={CallAPIScreen}
-        options={{
-          title: 'API Call',
-          headerBackVisible: true,
-          headerTitleAlign: 'center',
-        }}
-      /> */}
     </Stack.Navigator>
   );
 }
