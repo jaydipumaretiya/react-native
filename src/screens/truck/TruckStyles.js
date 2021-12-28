@@ -15,6 +15,18 @@ export default TruckStyles = StyleSheet.create({
     justifyContent: 'center',
   },
 
+  radioContainer: {
+    paddingVertical: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  radioText: {
+    paddingHorizontal: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
   dialogContainer: {
     padding: 10,
     alignItems: 'center',

@@ -31,6 +31,7 @@ export default function Route() {
           headerBackTitle: '',
           headerTitleAlign: 'center',
           headerBackVisible: true,
+          headerShown: false
         }}
       />
       <Stack.Screen

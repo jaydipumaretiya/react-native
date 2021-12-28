@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Text, TextInput, TouchableOpacity, View} from 'react-native';
+import {Image, Text, TextInput, TouchableOpacity, View} from 'react-native';
 import MorningCheckStyle from './MorningCheckStyle';
 import {Table, Rows} from 'react-native-table-component';
 import Dialog from 'react-native-dialog';
@@ -19,7 +19,7 @@ export default function MorningCheckScreen({navigation}) {
   };
 
   const handleOk = () => {
-    navigation.navigate('expenses');
+    navigation.goBack();
     setVisible(false);
   };
 
@@ -97,12 +97,16 @@ export default function MorningCheckScreen({navigation}) {
 
           <Dialog.Container visible={visible}>
             <View style={MorningCheckStyle.dialogContainer}>
-              <Text style={MorningCheckStyle.textSuccess}>Success!!</Text>
+              <Image source={require('../../assets/images/right.jpeg')}></Image>
+              <Text style={MorningCheckStyle.textSuccess}>Success!</Text>
+              <Text style={MorningCheckStyle.textMessage}>
+                New morning successfully
+              </Text>
 
               <TouchableOpacity
-                style={MorningCheckStyle.okButton}
+                style={MorningCheckStyle.okButtonContainer}
                 onPress={handleOk}>
-                <Text>Ok</Text>
+                <Text style={MorningCheckStyle.okButton}>Ok</Text>
               </TouchableOpacity>
             </View>
           </Dialog.Container>

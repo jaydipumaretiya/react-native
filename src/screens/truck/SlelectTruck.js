@@ -24,7 +24,8 @@ export default function SlelectTruck({navigation}) {
     setVisible(true);
   };
 
-  const handleCancel = () => {
+  const gotoMorningCheck = () => {
+    navigation.navigate('morningCheck');
     setVisible(false);
   };
 
@@ -75,11 +76,14 @@ export default function SlelectTruck({navigation}) {
             <View style={TruckStyles.dialogContainer}>
               <TouchableOpacity
                 style={TruckStyles.selectTruckButton}
-                onPress={handleCancel}>
+                onPress={gotoMorningCheck}>
                 <Text>Select Truck</Text>
               </TouchableOpacity>
 
-              <RadioForm formHorizontal={false} animation={true}>
+              <RadioForm
+                style={TruckStyles.radioContainer}
+                formHorizontal={false}
+                animation={true}>
                 {radio_props.map((obj, i) => {
                   var onPress = (value, index) => {
                     setvalue3Index(index);
@@ -92,20 +96,20 @@ export default function SlelectTruck({navigation}) {
                         index={i}
                         isSelected={value3Index === i}
                         onPress={onPress}
-                        buttonInnerColor={'#f39c12'}
+                        buttonInnerColor={'#FF0000'}
                         buttonOuterColor={
-                          value3Index === i ? '#2196f3' : '#000'
+                          value3Index === i ? '#FF0000' : '#FF0000'
                         }
                         buttonSize={10}
-                        buttonStyle={{}}
+                        buttonStyle={{borderWidth: 2}}
                         buttonWrapStyle={{}}
                       />
                       <RadioButtonLabel
                         obj={obj}
                         index={i}
                         onPress={onPress}
-                        labelStyle={{fontWeight: 'bold', color: '#2ecc71'}}
-                        labelWrapStyle={{}}
+                        labelStyle={{fontWeight: 'bold', color: '#000'}}
+                        labelWrapStyle={TruckStyles.radioText}
                       />
                     </RadioButton>
                   );
