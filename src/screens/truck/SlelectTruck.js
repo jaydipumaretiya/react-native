@@ -120,7 +120,7 @@ export default function SlelectTruck({navigation}) {
 
           <TouchableOpacity
             style={TruckStyles.loginBtn}
-            onPress={() => navigation.navigate('morningCheck')}>
+            onPress={() => navigation.navigate('loads')}>
             <Text style={TruckStyles.lightText}>Jobs</Text>
           </TouchableOpacity>
 

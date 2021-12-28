@@ -1,12 +1,16 @@
 import {StyleSheet} from 'react-native';
 
 export default MorningCheckStyle = StyleSheet.create({
+  image: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     padding: 4,
   },
   tableContainer: {
-    padding: 4,
+    margin: 4,
+    backgroundColor: '#fff'
   },
   row: {
     flexDirection: 'row',

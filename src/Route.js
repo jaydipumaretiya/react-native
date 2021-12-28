@@ -6,6 +6,8 @@ import SlelectTruck from './screens/truck/SlelectTruck';
 import MorningCheckScreen from './screens/check/MorningCheckScreen';
 import Expenses from './screens/expenses/Expenses';
 import SelectPhoto from './screens/photo/SelectPhoto';
+import Jobs from './screens/jobs/Jobs';
+import Loads from './screens/loads/Loads';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,7 +22,7 @@ export default function Route() {
           headerBackTitle: '',
           headerTitleAlign: 'center',
           headerBackVisible: true,
-          headerShown: false
+          headerShown: false,
         }}
       />
       <Stack.Screen
@@ -31,7 +33,7 @@ export default function Route() {
           headerBackTitle: '',
           headerTitleAlign: 'center',
           headerBackVisible: true,
-          headerShown: false
+          headerShown: false,
         }}
       />
       <Stack.Screen
@@ -64,16 +66,27 @@ export default function Route() {
           headerBackVisible: true,
         }}
       />
-      {/*  <Stack.Screen
-        name="addDetails"
-        component={AddDetails}
+      <Stack.Screen
+        name="jobs"
+        component={Jobs}
         options={{
-          title: 'Add Details',
+          title: 'Jobs',
           headerBackVisible: true,
           headerTitleAlign: 'center',
+          headerShown: false,
         }}
       />
       <Stack.Screen
+        name="loads"
+        component={Loads}
+        options={{
+          title: 'Loads',
+          headerBackVisible: true,
+          headerTitleAlign: 'center',
+          headerShown: false,
+        }}
+      />
+      {/*<Stack.Screen
         name="map"
         component={MapScreen}
         options={{
