@@ -23,7 +23,7 @@ export default LoadsStyle = StyleSheet.create({
     width: '22%',
     backgroundColor: '#FFF',
     padding: 6,
-    alignContent: 'center',
+    textAlign: 'center',
     marginVertical: 4,
     borderWidth: 1,
     borderRadius: 2,

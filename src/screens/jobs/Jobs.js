@@ -46,7 +46,11 @@ export default function Jobs({navigation}) {
           </View>
 
           <View style={JobsStyle.textContainerr}>
-            <Text style={JobsStyle.text}>Load collected</Text>
+            <Text
+              style={JobsStyle.text}
+              onPress={() => navigation.navigate('damaged')}>
+              Load collected
+            </Text>
           </View>
         </SafeAreaView>
       </ImageBackground>

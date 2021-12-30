@@ -1,14 +1,32 @@
 import * as React from 'react';
 import {
+  Image,
   ImageBackground,
   SafeAreaView,
   Text,
   TextInput,
+  TouchableOpacity,
   View,
 } from 'react-native';
+import Dialog from 'react-native-dialog';
 import JobsStyle from './JobsStyle';
 
 export default function JobsDetails({navigation}) {
+  const [visible, setVisible] = React.useState(false);
+
+  const showDialog = () => {
+    setVisible(true);
+  };
+
+  const handleCancel = () => {
+    setVisible(false);
+  };
+
+  const handleYes = () => {
+    setVisible(false);
+    navigation.goBack();
+  };
+
   return (
     <View style={JobsStyle.image}>
       <ImageBackground
@@ -76,10 +94,30 @@ export default function JobsDetails({navigation}) {
           <View style={JobsStyle.statusContainor}>
             <Text style={JobsStyle.textTitle}>Job Status</Text>
             <View style={JobsStyle.row}>
-              <Text style={JobsStyle.button}>Collected</Text>
+              <Text style={JobsStyle.button} onPress={setVisible}>
+                Collected
+              </Text>
               <Text style={JobsStyle.button}>Not Collected</Text>
             </View>
           </View>
+
+          <Dialog.Container visible={visible}>
+            <View style={JobsStyle.dialogContainer}>
+              <Image source={require('../../assets/images/right.jpeg')}></Image>
+              <Text style={MorningCheckStyle.textSuccess}>Are you sure?</Text>
+              <Text style={MorningCheckStyle.textMessage}>
+                You want to collect?
+              </Text>
+              <View style={JobsStyle.row}>
+                <Text style={JobsStyle.cancelButton} onPress={handleCancel}>
+                  Cancel
+                </Text>
+                <Text style={JobsStyle.successButton} onPress={handleYes}>
+                  Yes
+                </Text>
+              </View>
+            </View>
+          </Dialog.Container>
         </SafeAreaView>
       </ImageBackground>
     </View>

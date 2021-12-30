@@ -10,6 +10,7 @@ import Jobs from './screens/jobs/Jobs';
 import Loads from './screens/loads/Loads';
 import JobsDetails from './screens/jobs/JobsDetails';
 import MapScreen from './screens/jobs/MapScreen';
+import Damaged from './screens/jobs/Damaged';
 
 const Stack = createNativeStackNavigator();
 
@@ -105,6 +106,16 @@ export default function Route() {
           title: 'Map',
           headerBackVisible: true,
           headerTitleAlign: 'center',
+        }}
+      />
+      <Stack.Screen
+        name="damaged"
+        component={Damaged}
+        options={{
+          title: 'Damaged',
+          headerBackVisible: true,
+          headerTitleAlign: 'center',
+          headerShown: false,
         }}
       />
     </Stack.Navigator>

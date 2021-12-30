@@ -1,12 +1,5 @@
 import * as React from 'react';
-import {
-  Text,
-  TextInput,
-  TouchableOpacity,
-  StyleSheet,
-  View,
-  ImageBackground,
-} from 'react-native';
+import {Text, TouchableOpacity, View, ImageBackground} from 'react-native';
 import TruckStyles from './TruckStyles';
 import Dialog from 'react-native-dialog';
 import RadioForm, {
@@ -124,7 +117,9 @@ export default function SlelectTruck({navigation}) {
             <Text style={TruckStyles.lightText}>Jobs</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={TruckStyles.loginBtn}>
+          <TouchableOpacity
+            style={TruckStyles.loginBtn}
+            onPress={() => navigation.navigate('expenses')}>
             <Text style={TruckStyles.lightText}>Expenses</Text>
           </TouchableOpacity>
         </View>

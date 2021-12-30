@@ -3,7 +3,8 @@ import {StyleSheet} from 'react-native';
 export default ExpensesStyle = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 8,
+    padding: 4,
+    backgroundColor: '#C6D3DB',
   },
   title: {
     fontSize: 16,
@@ -30,5 +31,19 @@ export default ExpensesStyle = StyleSheet.create({
     margin: 6,
     flex: 1,
     flexDirection: 'column',
+  },
+  viewIcons: {
+    width: '28%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 10,
+    borderColor: '#000',
+    borderWidth: 1,
+    borderRadius: 6,
+    margin: 10,
+  },
+  icon: {
+    resizeMode: 'center',
+    height: 100,
   },
 });
