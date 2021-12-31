@@ -11,6 +11,8 @@ import Loads from './screens/loads/Loads';
 import JobsDetails from './screens/jobs/JobsDetails';
 import MapScreen from './screens/jobs/MapScreen';
 import Damaged from './screens/jobs/Damaged';
+import Keys from './screens/key/Keys';
+import Submit from './screens/submit/Submit';
 
 const Stack = createNativeStackNavigator();
 
@@ -113,6 +115,26 @@ export default function Route() {
         component={Damaged}
         options={{
           title: 'Damaged',
+          headerBackVisible: true,
+          headerTitleAlign: 'center',
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="keys"
+        component={Keys}
+        options={{
+          title: 'Keys',
+          headerBackVisible: true,
+          headerTitleAlign: 'center',
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="submit"
+        component={Submit}
+        options={{
+          title: 'Submit',
           headerBackVisible: true,
           headerTitleAlign: 'center',
           headerShown: false,

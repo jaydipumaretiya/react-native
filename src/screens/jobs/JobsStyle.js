@@ -169,6 +169,7 @@ export default JobsStyle = StyleSheet.create({
     backgroundColor: '#48B90C',
     color: '#FFFFFF',
     fontFamily: 'Roboto-Regular',
+    textAlign: 'center',
   },
   cancelButton: {
     padding: 6,
@@ -180,6 +181,7 @@ export default JobsStyle = StyleSheet.create({
     backgroundColor: '#F82830',
     color: '#FFFFFF',
     fontFamily: 'Roboto-Regular',
+    textAlign: 'center',
   },
   textSuccess: {
     fontFamily: 'Roboto-Regular',

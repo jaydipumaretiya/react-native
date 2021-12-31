@@ -38,4 +38,37 @@ export default JobsStyle = StyleSheet.create({
   image: {
     height: 240,
   },
+  dialogContainer: {
+    padding: 10,
+    backgroundColor: '#fff',
+  },
+  dialogSuccessContainer: {
+    padding: 10,
+    alignItems: 'center',
+    backgroundColor: '#fff',
+  },
+  textTitle: {
+    fontFamily: 'Roboto-Medium',
+    fontSize: 20,
+    marginBottom: 10,
+  },
+  textMessage: {
+    fontFamily: 'Roboto-Regular',
+    fontSize: 14,
+    marginVertical: 5,
+  },
+  okButtonContainer: {
+    paddingHorizontal: 26,
+    paddingVertical: 10,
+    backgroundColor: '#00ff00',
+    borderRadius: 4,
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontFamily: 'Roboto-Bold',
+  },
+  textSuccess: {
+    fontFamily: 'Roboto-Regular',
+    fontSize: 30,
+    marginBottom: 30,
+  },
 });
