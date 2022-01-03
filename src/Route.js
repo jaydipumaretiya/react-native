@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './screens/login/Login';
 import SlelectTruck from './screens/truck/SlelectTruck';
 import MorningCheckScreen from './screens/check/MorningCheckScreen';
@@ -13,10 +13,28 @@ import MapScreen from './screens/jobs/MapScreen';
 import Damaged from './screens/jobs/Damaged';
 import Keys from './screens/key/Keys';
 import Submit from './screens/submit/Submit';
+import DrawerScreen from './screens/drawer/DrawerScreen';
 
 const Stack = createNativeStackNavigator();
 
 export default function Route() {
+  const mainStack = () => {
+    return(
+     <Stack.Navigator screenOptions={baseHeaderOptions}>
+      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="Details" component={DetailsScreen}/>
+     </Stack.Navigator>
+  )
+}
+const secondStack = () => { //Import the other screens you use!
+    return(
+     <Stack.Navigator screenOptions={baseHeaderOptions}>
+      <Stack.Screen name="Other" component={OtherScreen} />
+      <Stack.Screen name="Screens" component={DiffScreen}/>
+     </Stack.Navigator>
+  )
+}
+
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -27,6 +45,16 @@ export default function Route() {
           headerBackTitle: '',
           headerTitleAlign: 'center',
           headerBackVisible: true,
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="drawer"
+        component={DrawerScreen}
+        options={{
+          title: 'Submit',
+          headerBackVisible: true,
+          headerTitleAlign: 'Drawer',
           headerShown: false,
         }}
       />

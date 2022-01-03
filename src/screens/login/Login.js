@@ -50,7 +50,7 @@ export default function Login({navigation}) {
 
           <TouchableOpacity
             style={LoginStyles.loginBtn}
-            onPress={() => navigation.navigate('selectTruck')}>
+            onPress={() => navigation.navigate('drawer')}>
             <Text style={LoginStyles.test}>LOGIN</Text>
           </TouchableOpacity>
         </View>

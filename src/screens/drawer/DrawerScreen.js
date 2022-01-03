@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { Button, View } from 'react-native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator, DrawerItem } from '@react-navigation/drawer';
+import Expenses from '../expenses/Expenses'
+import 'react-native-gesture-handler';
+import SlelectTruck from '../truck/SlelectTruck';
 
 function Home({ navigation }) {
   return (
@@ -24,13 +26,16 @@ function NotificationsScreen({ navigation }) {
 
 const Drawer = createDrawerNavigator();
 
-export default function App() {
+export default function DrawerScreen() {
   return (
-    <NavigationContainer>
       <Drawer.Navigator initialRouteName="Home">
-        <Drawer.Screen name="Home" component={Home} />
+        <Drawer.Screen name="Home" component={SlelectTruck} />
         <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+        <Drawer.Screen name="Expenses" component={Expenses} />
+        <Drawer.Screen name="Contact Us" component={NotificationsScreen} />
+        <Drawer.Screen name="About Us" component={NotificationsScreen} />
+        <Drawer.Screen name="Terms & Condition" component={NotificationsScreen} />
+        {/* <DrawerItem name="Logout" onPress={() => navigation.goBack()} /> */}
       </Drawer.Navigator>
-    </NavigationContainer>
   );
 }
