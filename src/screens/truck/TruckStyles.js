@@ -25,6 +25,8 @@ export default TruckStyles = StyleSheet.create({
     paddingHorizontal: 10,
     alignItems: 'center',
     justifyContent: 'center',
+    fontSize: 18,
+    fontFamily: 'Roboto-Bold',
   },
 
   dialogContainer: {
@@ -72,6 +74,11 @@ export default TruckStyles = StyleSheet.create({
     fontFamily: 'Roboto-Regular',
   },
 
+  buttonText : {
+    fontSize: 16,
+    fontFamily: 'Roboto-Bold',
+  },
+
   selectTruckButton: {
     width: '80%',
     borderRadius: 6,
@@ -93,6 +100,7 @@ export default TruckStyles = StyleSheet.create({
   },
 
   lightText: {
+    fontSize: 16,
     alignItems: 'center',
     justifyContent: 'center',
     color: '#B2B2B2',

@@ -22,6 +22,8 @@ export default LoadsStyle = StyleSheet.create({
   textContainer: {
     width: '22%',
     backgroundColor: '#FFF',
+    fontFamily: 'Roboto-Bold',
+    color: '#000',
     padding: 6,
     textAlign: 'center',
     marginVertical: 4,
@@ -43,6 +45,7 @@ export default LoadsStyle = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     color: '#000',
+    fontSize: 16,
     fontFamily: 'Roboto-Bold',
   },
 });

@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import Dialog from 'react-native-dialog';
 import JobsStyle from './JobsStyle';
+import MorningCheckStyle from '../check/MorningCheckStyle';
 
 export default function JobsDetails({navigation}) {
   const [visible, setVisible] = React.useState(false);
@@ -43,7 +44,7 @@ export default function JobsDetails({navigation}) {
 
           <View style={JobsStyle.row}>
             <View style={JobsStyle.viewStyle}>
-              <Text>From :</Text>
+              <Text style={JobsStyle.textNormal}>From :</Text>
             </View>
             <View style={JobsStyle.inputView}>
               <TextInput
@@ -56,7 +57,7 @@ export default function JobsDetails({navigation}) {
           </View>
           <View style={JobsStyle.row}>
             <View style={JobsStyle.viewStyle} style={JobsStyle.viewStyle}>
-              <Text>To :</Text>
+              <Text style={JobsStyle.textNormal}>To :</Text>
             </View>
             <View style={JobsStyle.inputView}>
               <TextInput

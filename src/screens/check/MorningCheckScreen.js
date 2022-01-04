@@ -25,11 +25,11 @@ export default function MorningCheckScreen({navigation}) {
 
   state = {
     tableData: [
-      ['Tyers & Wheel Fixing', '', '', ''],
-      ['Suppy Suppression', '', '', ''],
-      ['Steering', '', '', ''],
-      ['Security of Load', '', '', ''],
-      ['Garage', '', '', ''],
+      ['Tyers & Wheel Fixing', '', ''],
+      ['Suppy Suppression', '', ''],
+      ['Steering', '', ''],
+      ['Security of Load', '', ''],
+      ['Garage', '', ''],
     ],
   };
 
@@ -50,7 +50,7 @@ export default function MorningCheckScreen({navigation}) {
 
       <View style={MorningCheckStyle.row}>
         <View style={MorningCheckStyle.viewFlex}>
-          <Text>General Remarks</Text>
+          <Text style={MorningCheckStyle.textNormal}>General Remarks</Text>
         </View>
         <View style={MorningCheckStyle.inputView}>
           <TextInput
@@ -63,7 +63,7 @@ export default function MorningCheckScreen({navigation}) {
 
       <View style={MorningCheckStyle.row}>
         <View style={MorningCheckStyle.viewFlex}>
-          <Text>Triler Id</Text>
+          <Text style={MorningCheckStyle.textNormal}>Triler Id</Text>
         </View>
         <View style={MorningCheckStyle.inputView2}>
           <TextInput
@@ -86,7 +86,7 @@ export default function MorningCheckScreen({navigation}) {
 
       <View style={MorningCheckStyle.row}>
         <View style={MorningCheckStyle.viewFlex}>
-          <Text>Milage</Text>
+          <Text style={MorningCheckStyle.textNormal}>Milage</Text>
         </View>
         <View style={MorningCheckStyle.inputView2}>
           <TextInput
@@ -96,7 +96,7 @@ export default function MorningCheckScreen({navigation}) {
           />
         </View>
         <View style={MorningCheckStyle.buttonText}>
-          <Text onPress={setVisible}>Accept & Finalise</Text>
+          <Text onPress={setVisible} style={MorningCheckStyle.textNormal}>Accept & Finalise</Text>
 
           <Dialog.Container visible={visible}>
             <View style={MorningCheckStyle.dialogContainer}>

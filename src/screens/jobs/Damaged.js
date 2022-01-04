@@ -3,6 +3,7 @@ import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import DamagedStyle from './DamagedStyle';
 import Dialog from 'react-native-dialog';
+import MorningCheckStyle from '../check/MorningCheckStyle';
 
 export default function Damaged({navigation}) {
   const [visible, setVisible] = React.useState(false);
@@ -136,15 +137,15 @@ export default function Damaged({navigation}) {
         <Dialog.Container visible={visibleSuccess}>
           <View style={DamagedStyle.dialogSuccessContainer}>
             <Image source={require('../../assets/images/right.jpeg')}></Image>
-            <Text style={DamagedStyle.textSuccess}>Success!</Text>
-            <Text style={DamagedStyle.textMessage}>
+            <Text style={MorningCheckStyle.textSuccess}>Success!</Text>
+            <Text style={MorningCheckStyle.textMessage}>
               New morning successfully
             </Text>
 
             <TouchableOpacity
-              style={DamagedStyle.okButtonContainer}
+              style={MorningCheckStyle.okButtonContainer}
               onPress={handleOk}>
-              <Text style={DamagedStyle.okButton}>Ok</Text>
+              <Text style={MorningCheckStyle.okButton}>Ok</Text>
             </TouchableOpacity>
           </View>
         </Dialog.Container>

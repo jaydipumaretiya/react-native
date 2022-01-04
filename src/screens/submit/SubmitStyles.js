@@ -10,7 +10,7 @@ export default SubmitStyles = StyleSheet.create({
     fontSize: 16,
     color: '#000000',
     marginTop: 10,
-    fontFamily: 'Roboto-Medium',
+    fontFamily: 'Roboto-Bold',
   },
   box: {
     padding: 8,
@@ -35,6 +35,8 @@ export default SubmitStyles = StyleSheet.create({
   textNext: {
     borderColor: '#000',
     borderWidth: 1,
+    fontFamily: 'Roboto-Bold',
+    color: '#000',
     flexGrow: 1,
     marginTop: 20,
     padding: 8,
@@ -53,10 +55,11 @@ export default SubmitStyles = StyleSheet.create({
     paddingHorizontal: 26,
     paddingVertical: 10,
     backgroundColor: '#00ff00',
+    fontFamily: 'Roboto-Bold',
+    color: '#000',
     borderRadius: 4,
     alignItems: 'center',
     justifyContent: 'center',
-    fontFamily: 'Roboto-Bold',
   },
   textSuccess: {
     fontFamily: 'Roboto-Regular',

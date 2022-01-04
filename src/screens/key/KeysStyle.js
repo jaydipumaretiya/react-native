@@ -16,6 +16,8 @@ export default KeysStyle = StyleSheet.create({
   textContainer: {
     width: '22%',
     backgroundColor: '#FFF',
+    fontFamily: 'Roboto-Bold',
+    color: '#000',
     padding: 6,
     alignContent: 'center',
     marginVertical: 4,
@@ -33,9 +35,13 @@ export default KeysStyle = StyleSheet.create({
   },
   textPadding: {
     margin: 4,
+    fontFamily: 'Roboto-Bold',
+    color: '#000',
   },
   text: {
     flexBasis: '3%',
+    fontFamily: 'Roboto-Bold',
+    color: '#000',
     margin: 6,
     alignItems: 'center',
     justifyContent: 'center',
@@ -45,6 +51,8 @@ export default KeysStyle = StyleSheet.create({
     marginHorizontal: 4,
     marginVertical: 4,
     borderWidth: 1,
+    fontFamily: 'Roboto-Bold',
+    color: '#000',
     borderRadius: 2,
     textAlign: 'center',
   },

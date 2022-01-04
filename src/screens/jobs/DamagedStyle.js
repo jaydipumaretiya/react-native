@@ -17,6 +17,8 @@ export default JobsStyle = StyleSheet.create({
   },
   textContainer: {
     width: '22%',
+    fontFamily: 'Roboto-Bold',
+    color: '#000',
     backgroundColor: '#FFF',
     padding: 6,
     alignContent: 'center',
@@ -28,6 +30,8 @@ export default JobsStyle = StyleSheet.create({
   textButton: {
     flex: 1,
     paddingVertical: 10,
+    fontFamily: 'Roboto-Bold',
+    color: '#000',
     marginHorizontal: 4,
     alignContent: 'center',
     marginVertical: 4,

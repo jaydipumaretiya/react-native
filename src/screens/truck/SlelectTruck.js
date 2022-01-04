@@ -62,7 +62,7 @@ export default function SlelectTruck({navigation}) {
         style={TruckStyles.image}>
         <View style={TruckStyles.container}>
           <TouchableOpacity style={TruckStyles.loginBtn} onPress={setVisible}>
-            <Text style={TruckStyles.loginText}>Morning Checks</Text>
+            <Text style={TruckStyles.buttonText}>Morning Checks</Text>
           </TouchableOpacity>
 
           <Dialog.Container visible={visible}>
@@ -70,7 +70,7 @@ export default function SlelectTruck({navigation}) {
               <TouchableOpacity
                 style={TruckStyles.selectTruckButton}
                 onPress={gotoMorningCheck}>
-                <Text>Select Truck</Text>
+                <Text style={TruckStyles.radioText}>Select Truck</Text>
               </TouchableOpacity>
 
               <RadioForm
@@ -81,6 +81,8 @@ export default function SlelectTruck({navigation}) {
                   var onPress = (value, index) => {
                     setvalue3Index(index);
                     setvalue3(value);
+                    setVisible(false)
+                    navigation.navigate('morningCheck');
                   };
                   return (
                     <RadioButton labelHorizontal={true} key={i}>

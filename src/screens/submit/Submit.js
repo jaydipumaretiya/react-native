@@ -10,6 +10,7 @@ import {
 import {SafeAreaView} from 'react-native-safe-area-context';
 import SubmitStyles from './SubmitStyles';
 import Dialog from 'react-native-dialog';
+import MorningCheckStyle from '../check/MorningCheckStyle';
 
 export default function Submit({navigation}) {
   const [visibleSuccess, setVisibleSuccess] = React.useState(false);
@@ -65,11 +66,11 @@ export default function Submit({navigation}) {
         <Dialog.Container visible={visibleSuccess}>
           <View style={SubmitStyles.dialogSuccessContainer}>
             <Image source={require('../../assets/images/right.jpeg')}></Image>
-            <Text style={SubmitStyles.textSuccess}>Success!</Text>
+            <Text style={MorningCheckStyle.textSuccess}>Success!</Text>
             <TouchableOpacity
-              style={SubmitStyles.okButtonContainer}
+              style={MorningCheckStyle.okButtonContainer}
               onPress={handleOk}>
-              <Text style={SubmitStyles.okButton}>Ok</Text>
+              <Text style={MorningCheckStyle.okButton}>Ok</Text>
             </TouchableOpacity>
           </View>
         </Dialog.Container>

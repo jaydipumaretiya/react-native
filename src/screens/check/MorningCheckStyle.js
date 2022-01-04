@@ -26,17 +26,26 @@ export default MorningCheckStyle = StyleSheet.create({
     backgroundColor: '#FFF',
     padding: 6,
     borderWidth: 1,
+    color: '#000',
+    fontFamily: 'Roboto-Bold',
   },
   borderStyle: {
     borderWidth: 1,
     borderColor: '#000',
   },
   text: {
+    fontSize: 16,
     backgroundColor: '#F0000F',
     margin: 4,
     flexBasis: '6%',
+    color: '#000',
     alignItems: 'center',
     justifyContent: 'center',
+    fontFamily: 'Roboto-Bold',
+  },
+  textNormal: {
+    color: '#000',
+    fontFamily: 'Roboto-Bold',
   },
   inputView: {
     height: 40,
@@ -94,9 +103,10 @@ export default MorningCheckStyle = StyleSheet.create({
     fontFamily: 'Roboto-Bold',
   },
   textSuccess: {
-    fontFamily: 'Roboto-Regular',
+    fontFamily: 'Roboto-Bold',
     fontSize: 30,
     marginBottom: 30,
+    color: '#000',
   },
   textMessage: {
     fontFamily: 'Roboto-Regular',
