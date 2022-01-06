@@ -13,17 +13,16 @@ export default ExpensesStyle = StyleSheet.create({
     fontFamily: 'Roboto-Medium',
   },
   box: {
-    flexDirection: 'row',
     padding: 8,
     marginTop: 8,
     borderRadius: 6,
     backgroundColor: '#FFFFFF',
     borderColor: '#000',
     borderWidth: 0.5,
-    alignItems: 'center',
     justifyContent: 'center',
   },
   textInput: {
+    color: '#000000',
     fontFamily: 'Roboto-Regular',
   },
   row: {
@@ -44,13 +43,24 @@ export default ExpensesStyle = StyleSheet.create({
     borderRadius: 6,
     margin: 10,
   },
+  boxDate: {
+    flexDirection: 'row',
+    padding: 8,
+    marginTop: 8,
+    borderRadius: 6,
+    backgroundColor: '#FFFFFF',
+    borderColor: '#000',
+    borderWidth: 0.5,
+    justifyContent: 'center',
+  },
   icon: {
     resizeMode: 'center',
     height: 70,
   },
-  smallIcon: {
-  },
+  smallIcon: {},
   dateTimeText: {
     flex: 1,
-  }
+    color: '#000000',
+    fontFamily: 'Roboto-Regular',
+  },
 });

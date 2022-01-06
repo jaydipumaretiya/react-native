@@ -249,7 +249,7 @@ export default function Expenses({navigation}) {
           <View style={ExpensesStyle.column}>
             <Text style={ExpensesStyle.title}>Date</Text>
 
-            <View style={ExpensesStyle.box}>
+            <View style={ExpensesStyle.boxDate}>
               <Text style={ExpensesStyle.dateTimeText} onPress={showDatepicker}>
                 {formatDate(date)}
               </Text>
@@ -262,7 +262,7 @@ export default function Expenses({navigation}) {
           <View style={ExpensesStyle.column}>
             <Text style={ExpensesStyle.title}>Time</Text>
 
-            <View style={ExpensesStyle.box}>
+            <View style={ExpensesStyle.boxDate}>
               <Text style={ExpensesStyle.dateTimeText} onPress={showTimepicker}>
                 {formatTime(date)}
               </Text>
