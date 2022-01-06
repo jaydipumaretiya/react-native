@@ -12,11 +12,19 @@ import ExpensesStyle from './ExpensesStyle';
 import RNPickerSelect from 'react-native-picker-select';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import MorningCheckStyle from '../check/MorningCheckStyle';
+import Dialog from 'react-native-dialog';
 
 export default function Expenses({navigation}) {
   const [date, setDate] = React.useState(new Date());
   const [mode, setMode] = React.useState('date');
   const [show, setShow] = React.useState(false);
+  const [visible, setVisible] = React.useState(false);
+
+  const handleOk = () => {
+    navigation.goBack();
+    setVisible(false);
+  };
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
@@ -286,10 +294,11 @@ export default function Expenses({navigation}) {
         </View>
 
         <View style={ExpensesStyle.row}>
-
           <TouchableOpacity
             style={ExpensesStyle.viewIcons}
-            onPress={() => chooseFileCamera()}>
+            onPress={() => {
+              chooseFileCamera();
+            }}>
             <Image
               style={ExpensesStyle.icon}
               source={require('../../assets/images/ic_camera.png')}
@@ -299,7 +308,9 @@ export default function Expenses({navigation}) {
 
           <TouchableOpacity
             style={ExpensesStyle.viewIcons}
-            onPress={() => chooseFile('photo')}>
+            onPress={() => {
+              chooseFile('photo');
+            }}>
             <Image
               style={ExpensesStyle.icon}
               source={require('../../assets/images/ic_gallery.png')}
@@ -309,15 +320,29 @@ export default function Expenses({navigation}) {
 
           <TouchableOpacity
             style={ExpensesStyle.viewIcons}
-            onPress={() => navigation.goBack()}>
+            onPress={setVisible}>
             <Image
               style={ExpensesStyle.icon}
               source={require('../../assets/images/ic_up_arrow.png')}
             />
             <Text>Submit</Text>
           </TouchableOpacity>
-
         </View>
+
+        <Dialog.Container visible={visible}>
+          <View style={MorningCheckStyle.dialogContainer}>
+            <Image
+              style={MorningCheckStyle.icon}
+              source={require('../../assets/images/right.jpeg')}></Image>
+            <Text style={MorningCheckStyle.textSuccess}>Success!</Text>
+
+            <TouchableOpacity
+              style={MorningCheckStyle.okButtonContainer}
+              onPress={handleOk}>
+              <Text style={MorningCheckStyle.okButton}>Ok</Text>
+            </TouchableOpacity>
+          </View>
+        </Dialog.Container>
       </View>
     </SafeAreaView>
   );

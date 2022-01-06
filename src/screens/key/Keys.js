@@ -33,6 +33,8 @@ export default function Keys({navigation}) {
     {label: '8', value: '8'},
    ]);
   
+  const [value,setValue] = React.useState("0")
+  
   return (
     <View style={KeysStyle.image}>
       <ImageBackground
@@ -53,8 +55,12 @@ export default function Keys({navigation}) {
             </View>
             <View style={KeysStyle.spinner}>
               <RNPickerSelect
-                onValueChange={value => console.log(value)}
+                onValueChange={value => {
+                  setValue(value)
+                  console.log(value)
+                }}
                 items={items}
+                value={value}
               />
             </View>
           </View>

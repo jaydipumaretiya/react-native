@@ -27,6 +27,8 @@ export default ExpensesStyle = StyleSheet.create({
   },
   row: {
     flexDirection: 'row',
+    // flex: 1,
+    // justifyContent:"space-between"
   },
   column: {
     margin: 6,
@@ -34,7 +36,7 @@ export default ExpensesStyle = StyleSheet.create({
     flexDirection: 'column',
   },
   viewIcons: {
-    flex: 1,
+    width: '28%',
     justifyContent: 'center',
     alignItems: 'center',
     padding: 10,
@@ -57,6 +59,7 @@ export default ExpensesStyle = StyleSheet.create({
   icon: {
     resizeMode: 'center',
     height: 70,
+    width:70,
   },
   smallIcon: {},
   dateTimeText: {
