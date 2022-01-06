@@ -1,13 +1,12 @@
 import React, {useState} from 'react';
 import {
   SafeAreaView,
-  Button,
   Image,
-  ImageBackground,
   Text,
+  TouchableOpacity,
   TextInput,
-  TouchableWithoutFeedback,
   View,
+  Touchable,
 } from 'react-native';
 import ExpensesStyle from './ExpensesStyle';
 import RNPickerSelect from 'react-native-picker-select';
@@ -249,28 +248,29 @@ export default function Expenses({navigation}) {
           <View style={ExpensesStyle.column}>
             <Text style={ExpensesStyle.title}>Date</Text>
 
-            <View style={ExpensesStyle.boxDate}>
-              <Text style={ExpensesStyle.dateTimeText} onPress={showDatepicker}>
-                {formatDate(date)}
-              </Text>
+            <TouchableOpacity
+              style={ExpensesStyle.boxDate}
+              onPress={showDatepicker}>
+              <Text style={ExpensesStyle.dateTimeText}>{formatDate(date)}</Text>
               <Image
                 style={ExpensesStyle.smallIcon}
                 source={require('../../assets/images/calendar.png')}
               />
-            </View>
+            </TouchableOpacity>
           </View>
+
           <View style={ExpensesStyle.column}>
             <Text style={ExpensesStyle.title}>Time</Text>
 
-            <View style={ExpensesStyle.boxDate}>
-              <Text style={ExpensesStyle.dateTimeText} onPress={showTimepicker}>
-                {formatTime(date)}
-              </Text>
+            <TouchableOpacity
+              style={ExpensesStyle.boxDate}
+              onPress={showTimepicker}>
+              <Text style={ExpensesStyle.dateTimeText}>{formatTime(date)}</Text>
               <Image
                 style={ExpensesStyle.smallIcon}
                 source={require('../../assets/images/clock.png')}
               />
-            </View>
+            </TouchableOpacity>
 
             {show && (
               <DateTimePicker
@@ -286,38 +286,37 @@ export default function Expenses({navigation}) {
         </View>
 
         <View style={ExpensesStyle.row}>
-          {/* <Button
-          onPress={() => navigation.navigate('selectPhoto')}
-          title="Open Sceen for Select photo"
-        /> */}
-          <TouchableWithoutFeedback onPress={() => chooseFileCamera()}>
-            <View style={ExpensesStyle.viewIcons}>
-              <Image
-                style={ExpensesStyle.icon}
-                source={require('../../assets/images/ic_camera.png')}
-              />
-              <Text>Camera</Text>
-            </View>
-          </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback onPress={() => chooseFile('photo')}>
-            <View style={ExpensesStyle.viewIcons}>
-              <Image
-                style={ExpensesStyle.icon}
-                source={require('../../assets/images/ic_gallery.png')}
-              />
-              <Text>Gallery</Text>
-            </View>
-          </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback
-            onPress={() => navigation.navigate('selectTruck')}>
-            <View style={ExpensesStyle.viewIcons}>
-              <Image
-                style={ExpensesStyle.icon}
-                source={require('../../assets/images/ic_up_arrow.png')}
-              />
-              <Text>Submit</Text>
-            </View>
-          </TouchableWithoutFeedback>
+
+          <TouchableOpacity
+            style={ExpensesStyle.viewIcons}
+            onPress={() => chooseFileCamera()}>
+            <Image
+              style={ExpensesStyle.icon}
+              source={require('../../assets/images/ic_camera.png')}
+            />
+            <Text>Camera</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={ExpensesStyle.viewIcons}
+            onPress={() => chooseFile('photo')}>
+            <Image
+              style={ExpensesStyle.icon}
+              source={require('../../assets/images/ic_gallery.png')}
+            />
+            <Text>Gallery</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={ExpensesStyle.viewIcons}
+            onPress={() => navigation.goBack()}>
+            <Image
+              style={ExpensesStyle.icon}
+              source={require('../../assets/images/ic_up_arrow.png')}
+            />
+            <Text>Submit</Text>
+          </TouchableOpacity>
+
         </View>
       </View>
     </SafeAreaView>

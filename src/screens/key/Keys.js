@@ -48,12 +48,15 @@ export default function Keys({navigation}) {
           </View>
 
           <View style={KeysStyle.row}>
-            <Text style={KeysStyle.textPadding}>NUMBER OF KEYS :</Text>
-            <RNPickerSelect
-              style={LoginStyles.test}
-              onValueChange={value => console.log(value)}
-              items={items}
-            />
+            <View>
+              <Text style={KeysStyle.textPadding}>NUMBER OF KEYS :</Text>
+            </View>
+            <View style={KeysStyle.spinner}>
+              <RNPickerSelect
+                onValueChange={value => console.log(value)}
+                items={items}
+              />
+            </View>
           </View>
           <View style={KeysStyle.tableContainer}>
             <Table borderStyle={KeysStyle.borderStyle}>
@@ -61,7 +64,11 @@ export default function Keys({navigation}) {
             </Table>
           </View>
 
-          <Text style={KeysStyle.textButton} onPress={() => navigation.navigate('submit')}>Next</Text>
+          <Text
+            style={KeysStyle.textButton}
+            onPress={() => navigation.navigate('submit')}>
+            Next
+          </Text>
         </SafeAreaView>
       </ImageBackground>
     </View>

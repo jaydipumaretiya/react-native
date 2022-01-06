@@ -75,4 +75,14 @@ export default JobsStyle = StyleSheet.create({
     fontSize: 30,
     marginBottom: 30,
   },
+  dialogScreenContainer: {
+    padding: 10,
+    alignItems: 'center',
+    backgroundColor: '#fff',
+  },
+  screenShot: {
+    height: '90%',
+    width: '100%',
+    resizeMode: 'contain',
+  },
 });

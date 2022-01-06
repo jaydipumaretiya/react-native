@@ -104,7 +104,9 @@ export default function JobsDetails({navigation}) {
 
           <Dialog.Container visible={visible}>
             <View style={JobsStyle.dialogContainer}>
-              <Image source={require('../../assets/images/right.jpeg')}></Image>
+              <Image
+                style={MorningCheckStyle.icon}
+                source={require('../../assets/images/right.jpeg')}></Image>
               <Text style={MorningCheckStyle.textSuccess}>Are you sure?</Text>
               <Text style={MorningCheckStyle.textMessage}>
                 You want to collect?

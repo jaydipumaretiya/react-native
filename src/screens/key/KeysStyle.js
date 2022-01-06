@@ -16,6 +16,7 @@ export default KeysStyle = StyleSheet.create({
   row: {
     flexDirection: 'row',
     padding: 6,
+    alignItems: 'center',
   },
   textContainer: {
     width: '22%',
@@ -41,6 +42,9 @@ export default KeysStyle = StyleSheet.create({
     margin: 4,
     fontFamily: 'Roboto-Bold',
     color: '#000',
+  },
+  spinner: {
+    width: '30%',
   },
   text: {
     flexBasis: '3%',

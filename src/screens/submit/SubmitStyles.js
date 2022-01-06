@@ -7,6 +7,12 @@ export default SubmitStyles = StyleSheet.create({
     backgroundColor: '#C6D3DB',
     flexDirection: 'column',
   },
+  row: {
+    flexDirection: 'row',
+    marginVertical: 4,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   title: {
     fontSize: 16,
     color: '#000000',
@@ -51,6 +57,17 @@ export default SubmitStyles = StyleSheet.create({
     padding: 10,
     alignItems: 'center',
     backgroundColor: '#fff',
+  },
+  clearButtonContainer: {
+    paddingHorizontal: 26,
+    paddingVertical: 10,
+    marginEnd: 20,
+    backgroundColor: '#EAEAEA',
+    fontFamily: 'Roboto-Bold',
+    color: '#000',
+    borderRadius: 4,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   okButtonContainer: {
     paddingHorizontal: 26,

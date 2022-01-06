@@ -34,7 +34,7 @@ export default ExpensesStyle = StyleSheet.create({
     flexDirection: 'column',
   },
   viewIcons: {
-    width: '28%',
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 10,
@@ -51,6 +51,7 @@ export default ExpensesStyle = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     borderColor: '#000',
     borderWidth: 0.5,
+    alignItems: 'center',
     justifyContent: 'center',
   },
   icon: {

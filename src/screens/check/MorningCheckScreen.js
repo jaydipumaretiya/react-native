@@ -1,13 +1,18 @@
 import * as React from 'react';
-import {Image, ImageBackground, Text, TextInput, TouchableOpacity, View} from 'react-native';
+import {
+  Image,
+  ImageBackground,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import MorningCheckStyle from './MorningCheckStyle';
 import {Table, Rows} from 'react-native-table-component';
 import Dialog from 'react-native-dialog';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import CheckBox from 'react-native-check-box';
 
 export default function MorningCheckScreen({navigation}) {
-  const [isChecked, setChecked] = React.useState(false);
+  const [isChecked, setChecked] = React.useState(true);
   const [visible, setVisible] = React.useState(false);
 
   const showDialog = () => {
@@ -72,16 +77,30 @@ export default function MorningCheckScreen({navigation}) {
             keyboardType="default"
           />
         </View>
-        <CheckBox
-          style={MorningCheckStyle.checkBoxed}
-          onClick={() => {
-            setChecked({
-              isChecked: !this.state.isChecked,
-            });
-          }}
-          isChecked={this.state.isChecked}
-          leftText={'Nil Defects'}
-        />
+        <TouchableOpacity
+          style={
+            (MorningCheckStyle.checkBoxed,
+            {flexDirection: 'row', alignItems: 'center', paddingLeft: 10})
+          }
+          onPress={() => {
+            setChecked(!isChecked);
+          }}>
+          <Text style={MorningCheckStyle.textNormal}>Nil Defects</Text>
+          <Image
+            source={
+              isChecked
+                ? require('../../assets/images/ic_complete.png')
+                : require('../../assets/images/ic_uncheck.png')
+            }
+            resizeMode="contain"
+            style={{
+              height: 20,
+              width: 20,
+              marginLeft: 10,
+            }}
+            activeOpacity={0.6}
+          />
+        </TouchableOpacity>
       </View>
 
       <View style={MorningCheckStyle.row}>
@@ -96,11 +115,15 @@ export default function MorningCheckScreen({navigation}) {
           />
         </View>
         <View style={MorningCheckStyle.buttonText}>
-          <Text onPress={setVisible} style={MorningCheckStyle.textNormal}>Accept & Finalise</Text>
+          <Text onPress={setVisible} style={MorningCheckStyle.textNormal}>
+            Accept & Finalise
+          </Text>
 
           <Dialog.Container visible={visible}>
             <View style={MorningCheckStyle.dialogContainer}>
-              <Image source={require('../../assets/images/right.jpeg')}></Image>
+              <Image
+                style={MorningCheckStyle.icon}
+                source={require('../../assets/images/right.jpeg')}></Image>
               <Text style={MorningCheckStyle.textSuccess}>Success!</Text>
               <Text style={MorningCheckStyle.textMessage}>
                 New morning successfully

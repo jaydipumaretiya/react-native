@@ -12,6 +12,10 @@ export default function Damaged({navigation}) {
   const [visibleSuccess, setVisibleSuccess] = React.useState(false);
   const [showImage, setShowImage] = React.useState(false);
 
+  const showImageDialog = () => {
+    setShowImage(true);
+  };
+
   const showDialog = () => {
     setVisible(true);
   };
@@ -31,6 +35,7 @@ export default function Damaged({navigation}) {
   };
 
   const showSuccessDialog = () => {
+    setShowImage(false);
     setVisibleSuccess(true);
   };
 
@@ -254,8 +259,8 @@ export default function Damaged({navigation}) {
           </Text>
           <Text
             style={DamagedStyle.textButton}
-            onPress={() => showSuccessDialog(true)}>
-            Recoed & Continue
+            onPress={() => takeScreenShot()}>
+            Record & Continue
           </Text>
           <Text
             style={DamagedStyle.textButton}
@@ -264,9 +269,9 @@ export default function Damaged({navigation}) {
           </Text>
         </View>
 
-        <Text>
+        {/* <Text>
           {savedImagePath ? `Saved Image Path\n ${savedImagePath}` : ''}
-        </Text>
+        </Text> */}
 
         <Dialog.Container visible={visible} onBackdropPress={handleCancel}>
           <View style={DamagedStyle.dialogContainer}>
@@ -286,7 +291,9 @@ export default function Damaged({navigation}) {
 
         <Dialog.Container visible={visibleSuccess}>
           <View style={DamagedStyle.dialogSuccessContainer}>
-            <Image source={require('../../assets/images/right.jpeg')}></Image>
+            <Image
+              style={MorningCheckStyle.icon}
+              source={require('../../assets/images/right.jpeg')}></Image>
             <Text style={MorningCheckStyle.textSuccess}>Success!</Text>
             <Text style={MorningCheckStyle.textMessage}>
               New morning successfully
@@ -301,12 +308,17 @@ export default function Damaged({navigation}) {
         </Dialog.Container>
 
         <Dialog.Container visible={showImage}>
-          {/* <Image source={require(savedImagePath)}></Image> */}
-          <TouchableOpacity
-            style={MorningCheckStyle.okButtonContainer}
-            onPress={showSuccessDialog}>
-            <Text style={MorningCheckStyle.okButton}>Ok</Text>
-          </TouchableOpacity>
+          <View style={DamagedStyle.dialogScreenContainer}>
+            <Image
+              style={DamagedStyle.screenShot}
+              source={{uri: savedImagePath}}
+            />
+            <TouchableOpacity
+              style={MorningCheckStyle.okButtonContainer}
+              onPress={showSuccessDialog}>
+              <Text style={MorningCheckStyle.okButton}>Ok</Text>
+            </TouchableOpacity>
+          </View>
         </Dialog.Container>
       </SafeAreaView>
     </View>

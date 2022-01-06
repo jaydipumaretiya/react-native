@@ -10,7 +10,7 @@ export default MorningCheckStyle = StyleSheet.create({
   },
   tableContainer: {
     margin: 4,
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
   },
   row: {
     flexDirection: 'row',
@@ -107,6 +107,10 @@ export default MorningCheckStyle = StyleSheet.create({
     fontSize: 30,
     marginBottom: 30,
     color: '#000',
+  },
+  icon: {
+    width: 70,
+    height: 70,
   },
   textMessage: {
     fontFamily: 'Roboto-Regular',
