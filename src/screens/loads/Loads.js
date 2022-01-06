@@ -19,7 +19,7 @@ export default function Loads({navigation}) {
         <SafeAreaView>
           <View style={LoadsStyle.rowEndContainer}>
             <Text
-              onPress={() => navigation.goBack()}
+              onPress={() => navigation.navigate('drawer')}
               style={LoadsStyle.textContainer}>
               Home
             </Text>

@@ -56,7 +56,11 @@ export default function Submit({navigation}) {
         </View>
         <Text style={SubmitStyles.title}>Signature</Text>
         <View style={SubmitStyles.box}>
-          <Text style={SubmitStyles.textCenter}>Tap for Signature</Text>
+          <Text
+            style={SubmitStyles.textCenter}
+            onPress={() => navigation.navigate('signature')}>
+            Tap for Signature
+          </Text>
         </View>
 
         <Text style={SubmitStyles.textNext} onPress={showSuccessDialog}>

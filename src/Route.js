@@ -14,6 +14,7 @@ import Damaged from './screens/jobs/Damaged';
 import Keys from './screens/key/Keys';
 import Submit from './screens/submit/Submit';
 import DrawerScreen from './screens/drawer/DrawerScreen';
+import SignatureScreen from './screens/submit/SignatureScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -166,6 +167,15 @@ const secondStack = () => { //Import the other screens you use!
           headerBackVisible: true,
           headerTitleAlign: 'center',
           headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="signature"
+        component={SignatureScreen}
+        options={{
+          title: 'SignatureCapture',
+          headerBackVisible: true,
+          headerTitleAlign: 'center',
         }}
       />
     </Stack.Navigator>

@@ -13,6 +13,10 @@ export default KeysStyle = StyleSheet.create({
     padding: 6,
     justifyContent: 'flex-end',
   },
+  row: {
+    flexDirection: 'row',
+    padding: 6,
+  },
   textContainer: {
     width: '22%',
     backgroundColor: '#FFF',

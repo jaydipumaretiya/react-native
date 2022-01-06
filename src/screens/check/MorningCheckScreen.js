@@ -76,10 +76,10 @@ export default function MorningCheckScreen({navigation}) {
           style={MorningCheckStyle.checkBoxed}
           onClick={() => {
             setChecked({
-              isChecked: !state.isChecked,
+              isChecked: !this.state.isChecked,
             });
           }}
-          isChecked={state.isChecked}
+          isChecked={this.state.isChecked}
           leftText={'Nil Defects'}
         />
       </View>

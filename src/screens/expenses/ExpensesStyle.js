@@ -13,12 +13,14 @@ export default ExpensesStyle = StyleSheet.create({
     fontFamily: 'Roboto-Medium',
   },
   box: {
+    flexDirection: 'row',
     padding: 8,
     marginTop: 8,
     borderRadius: 6,
     backgroundColor: '#FFFFFF',
     borderColor: '#000',
     borderWidth: 0.5,
+    alignItems: 'center',
     justifyContent: 'center',
   },
   textInput: {
@@ -44,6 +46,11 @@ export default ExpensesStyle = StyleSheet.create({
   },
   icon: {
     resizeMode: 'center',
-    height: 100,
+    height: 70,
   },
+  smallIcon: {
+  },
+  dateTimeText: {
+    flex: 1,
+  }
 });

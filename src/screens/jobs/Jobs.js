@@ -25,7 +25,7 @@ export default function Jobs({navigation}) {
         <SafeAreaView>
           <View style={JobsStyle.rowEndContainer}>
             <Text
-              onPress={() => navigation.goBack()}
+              onPress={() => navigation.navigate('drawer')}
               style={JobsStyle.textContainer}>
               Home
             </Text>

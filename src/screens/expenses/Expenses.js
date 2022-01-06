@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {
+  SafeAreaView,
   Button,
   Image,
   ImageBackground,
@@ -17,14 +18,6 @@ export default function Expenses({navigation}) {
   const [date, setDate] = React.useState(new Date());
   const [mode, setMode] = React.useState('date');
   const [show, setShow] = React.useState(false);
-
-  const onButtonPress = React.useCallback((type, options) => {
-    if (type === 'capture') {
-      ImagePicker.launchCamera(options, setResponse);
-    } else {
-      ImagePicker.launchImageLibrary(options, setResponse);
-    }
-  }, []);
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
@@ -58,7 +51,7 @@ export default function Expenses({navigation}) {
 
   const [filePath, setFilePath] = useState({});
 
-  const requestCameraPermission = async () => {
+  requestCameraPermission = async () => {
     if (Platform.OS === 'android') {
       try {
         const granted = await PermissionsAndroid.request(
@@ -77,7 +70,7 @@ export default function Expenses({navigation}) {
     } else return true;
   };
 
-  const requestExternalWritePermission = async () => {
+  requestExternalWritePermission = async () => {
     if (Platform.OS === 'android') {
       try {
         const granted = await PermissionsAndroid.request(
@@ -91,7 +84,7 @@ export default function Expenses({navigation}) {
         return granted === PermissionsAndroid.RESULTS.GRANTED;
       } catch (err) {
         console.warn(err);
-        alert('Write permission err', err);
+        // alert('Write permission err', err);
       }
       return false;
     } else return true;
@@ -138,6 +131,44 @@ export default function Expenses({navigation}) {
     }
   };
 
+  chooseFileCamera = () => {
+    let options = {
+      title: 'Select Image',
+      customButtons: [
+        {
+          name: 'customOptionKey',
+          title: 'Choose Photo from Custom Option',
+        },
+      ],
+      storageOptions: {
+        skipBackup: true,
+        path: 'images',
+      },
+    };
+    // let isCameraPermitted = this.requestCameraPermission();
+    let isStoragePermitted = this.requestExternalWritePermission();
+    if (isStoragePermitted) {
+      launchCamera(options, response => {
+        console.log('Response = ', response);
+
+        if (response.didCancel) {
+          alert('User cancelled camera picker');
+          return;
+        } else if (response.errorCode == 'camera_unavailable') {
+          alert('Camera not available on device');
+          return;
+        } else if (response.errorCode == 'permission') {
+          alert('Permission not satisfied');
+          return;
+        } else if (response.errorCode == 'others') {
+          alert(response.errorMessage);
+          return;
+        }
+        console.log('base64 -> ', response);
+      });
+    }
+  };
+
   const chooseFile = type => {
     let options = {
       mediaType: type,
@@ -172,101 +203,123 @@ export default function Expenses({navigation}) {
     });
   };
 
+  formatDate = date => {
+    return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+  };
+
+  formatTime = date => {
+    return `${date.getHours()}:${date.getMinutes()}`;
+  };
+
   return (
-    <View style={ExpensesStyle.container}>
-      <Text style={ExpensesStyle.title}>Expense Type</Text>
+    <SafeAreaView style={{flex: 1}}>
+      <View style={ExpensesStyle.container}>
+        <Text style={ExpensesStyle.title}>Expense Type</Text>
 
-      <View style={ExpensesStyle.box}>
-        <RNPickerSelect
-          onValueChange={value => console.log(value)}
-          items={items}
-        />
-      </View>
+        <View style={ExpensesStyle.box}>
+          <RNPickerSelect
+            onValueChange={value => console.log(value)}
+            items={items}
+          />
+        </View>
 
-      <Text style={ExpensesStyle.title}>Expense Description</Text>
+        <Text style={ExpensesStyle.title}>Expense Description</Text>
 
-      <View style={ExpensesStyle.box}>
-        <TextInput
-          style={ExpensesStyle.textInput}
-          placeholder="Expense Description"
-          placeholderTextColor="#808080"
-          keyboardType="default"
-        />
-      </View>
+        <View style={ExpensesStyle.box}>
+          <TextInput
+            style={ExpensesStyle.textInput}
+            placeholder="Expense Description"
+            placeholderTextColor="#808080"
+            keyboardType="default"
+          />
+        </View>
 
-      <Text style={ExpensesStyle.title}>Amount</Text>
+        <Text style={ExpensesStyle.title}>Amount</Text>
 
-      <View style={ExpensesStyle.box}>
-        <TextInput
-          style={ExpensesStyle.textInput}
-          placeholder="Amount"
-          placeholderTextColor="#808080"
-          keyboardType="numeric"
-        />
-      </View>
+        <View style={ExpensesStyle.box}>
+          <TextInput
+            style={ExpensesStyle.textInput}
+            placeholder="Amount"
+            placeholderTextColor="#808080"
+            keyboardType="numeric"
+          />
+        </View>
 
-      <View style={ExpensesStyle.row}>
-        <View style={ExpensesStyle.column}>
-          <Text style={ExpensesStyle.title}>Date</Text>
+        <View style={ExpensesStyle.row}>
+          <View style={ExpensesStyle.column}>
+            <Text style={ExpensesStyle.title}>Date</Text>
 
-          <View style={ExpensesStyle.box}>
-            <Text onPress={showDatepicker}>dateeee</Text>
+            <View style={ExpensesStyle.box}>
+              <Text style={ExpensesStyle.dateTimeText} onPress={showDatepicker}>
+                {formatDate(date)}
+              </Text>
+              <Image
+                style={ExpensesStyle.smallIcon}
+                source={require('../../assets/images/calendar.png')}
+              />
+            </View>
+          </View>
+          <View style={ExpensesStyle.column}>
+            <Text style={ExpensesStyle.title}>Time</Text>
+
+            <View style={ExpensesStyle.box}>
+              <Text style={ExpensesStyle.dateTimeText} onPress={showTimepicker}>
+                {formatTime(date)}
+              </Text>
+              <Image
+                style={ExpensesStyle.smallIcon}
+                source={require('../../assets/images/clock.png')}
+              />
+            </View>
+
+            {show && (
+              <DateTimePicker
+                testID="dateTimePicker"
+                value={date}
+                mode={mode}
+                is24Hour={true}
+                display="default"
+                onChange={onChange}
+              />
+            )}
           </View>
         </View>
-        <View style={ExpensesStyle.column}>
-          <Text style={ExpensesStyle.title}>Time</Text>
 
-          <View style={ExpensesStyle.box}>
-            <Text onPress={showTimepicker}>date</Text>
-          </View>
-
-          {show && (
-            <DateTimePicker
-              testID="dateTimePicker"
-              value={date}
-              mode={mode}
-              is24Hour={true}
-              display="default"
-              onChange={onChange}
-            />
-          )}
-        </View>
-      </View>
-
-      <View style={ExpensesStyle.row}>
-        {/* <Button
+        <View style={ExpensesStyle.row}>
+          {/* <Button
           onPress={() => navigation.navigate('selectPhoto')}
           title="Open Sceen for Select photo"
         /> */}
-        <TouchableWithoutFeedback onPress={() => captureImage('photo')}>
-          <View style={ExpensesStyle.viewIcons}>
-            <Image
-              style={ExpensesStyle.icon}
-              source={require('../../assets/images/ic_camera.png')}
-            />
-            <Text>Camera</Text>
-          </View>
-        </TouchableWithoutFeedback>
-        <TouchableWithoutFeedback onPress={() => chooseFile('photo')}>
-          <View style={ExpensesStyle.viewIcons}>
-            <Image
-              style={ExpensesStyle.icon}
-              source={require('../../assets/images/ic_gallery.png')}
-            />
-            <Text>Gallery</Text>
-          </View>
-        </TouchableWithoutFeedback>
-        <TouchableWithoutFeedback
-          onPress={() => navigation.navigate('selectTruck')}>
-          <View style={ExpensesStyle.viewIcons}>
-            <Image
-              style={ExpensesStyle.icon}
-              source={require('../../assets/images/ic_up_arrow.png')}
-            />
-            <Text>Submit</Text>
-          </View>
-        </TouchableWithoutFeedback>
+          <TouchableWithoutFeedback onPress={() => chooseFileCamera()}>
+            <View style={ExpensesStyle.viewIcons}>
+              <Image
+                style={ExpensesStyle.icon}
+                source={require('../../assets/images/ic_camera.png')}
+              />
+              <Text>Camera</Text>
+            </View>
+          </TouchableWithoutFeedback>
+          <TouchableWithoutFeedback onPress={() => chooseFile('photo')}>
+            <View style={ExpensesStyle.viewIcons}>
+              <Image
+                style={ExpensesStyle.icon}
+                source={require('../../assets/images/ic_gallery.png')}
+              />
+              <Text>Gallery</Text>
+            </View>
+          </TouchableWithoutFeedback>
+          <TouchableWithoutFeedback
+            onPress={() => navigation.navigate('selectTruck')}>
+            <View style={ExpensesStyle.viewIcons}>
+              <Image
+                style={ExpensesStyle.icon}
+                source={require('../../assets/images/ic_up_arrow.png')}
+              />
+              <Text>Submit</Text>
+            </View>
+          </TouchableWithoutFeedback>
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }

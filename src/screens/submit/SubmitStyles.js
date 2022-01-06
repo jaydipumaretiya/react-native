@@ -5,6 +5,7 @@ export default SubmitStyles = StyleSheet.create({
     flex: 1,
     padding: 4,
     backgroundColor: '#C6D3DB',
+    flexDirection: 'column',
   },
   title: {
     fontSize: 16,

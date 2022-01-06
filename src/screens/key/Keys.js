@@ -3,6 +3,7 @@ import {ImageBackground, Text, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {Rows, Table} from 'react-native-table-component';
 import KeysStyle from './KeysStyle';
+import RNPickerSelect from 'react-native-picker-select';
 
 export default function Keys({navigation}) {
   state = {
@@ -20,6 +21,18 @@ export default function Keys({navigation}) {
     ],
   };
 
+   const [items, setItems] = React.useState([
+    {label: '0', value: '0'},
+    {label: '1', value: '1'},
+    {label: '2', value: '2'},
+    {label: '3', value: '3'},
+    {label: '4', value: '4'},
+    {label: '5', value: '5'},
+    {label: '6', value: '6'},
+    {label: '7', value: '7'},
+    {label: '8', value: '8'},
+   ]);
+  
   return (
     <View style={KeysStyle.image}>
       <ImageBackground
@@ -28,14 +41,20 @@ export default function Keys({navigation}) {
         <SafeAreaView>
           <View style={KeysStyle.rowEndContainer}>
             <Text
-              onPress={() => navigation.goBack()}
+              onPress={() => navigation.navigate('drawer')}
               style={KeysStyle.textContainer}>
               Home
             </Text>
           </View>
 
-          <Text style={KeysStyle.textPadding}>NUMBER OF KEYS :</Text>
-
+          <View style={KeysStyle.row}>
+            <Text style={KeysStyle.textPadding}>NUMBER OF KEYS :</Text>
+            <RNPickerSelect
+              style={LoginStyles.test}
+              onValueChange={value => console.log(value)}
+              items={items}
+            />
+          </View>
           <View style={KeysStyle.tableContainer}>
             <Table borderStyle={KeysStyle.borderStyle}>
               <Rows data={state.tableData} textStyle={KeysStyle.text} />
