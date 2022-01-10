@@ -2,6 +2,7 @@ import * as React from 'react';
 import {
   Image,
   ImageBackground,
+  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
@@ -28,21 +29,30 @@ export default function MorningCheckScreen({navigation}) {
     setVisible(false);
   };
 
+  const elementInput = value => (
+    <TouchableOpacity>
+      <View style={MorningCheckStyle.inputTable}>
+        <TextInput
+          style={MorningCheckStyle.textInput}
+          placeholder="Enter Value"
+          keyboardType="default"
+        />
+      </View>
+    </TouchableOpacity>
+  );
+
   state = {
     tableData: [
-      ['Tyers & Wheel Fixing', '', ''],
-      ['Suppy Suppression', '', ''],
-      ['Steering', '', ''],
-      ['Security of Load', '', ''],
-      ['Garage', '', ''],
+      ['Tyers & Wheel Fixing', '', elementInput('1')],
+      ['Suppy Suppression', '', elementInput('1')],
+      ['Steering', '', elementInput('1')],
+      ['Security of Load', '', elementInput('1')],
+      ['Garage', '', elementInput('1')],
     ],
   };
 
   return (
     <View style={MorningCheckStyle.image}>
-      {/* <ImageBackground
-        source={require('../../assets/images/background.jpeg')}
-        style={MorningCheckStyle.image}> */}
       <View style={MorningCheckStyle.rowEnd}>
         <Text style={MorningCheckStyle.textStyle}>GJ 05 2525</Text>
       </View>
@@ -138,7 +148,17 @@ export default function MorningCheckScreen({navigation}) {
           </Dialog.Container>
         </View>
       </View>
-      {/* </ImageBackground> */}
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff'},
+  singleHead: {width: 80, height: 40, backgroundColor: '#c8e1ff'},
+  head: {flex: 1, backgroundColor: '#c8e1ff'},
+  title: {flex: 2, backgroundColor: '#f6f8fa'},
+  titleText: {marginRight: 6, textAlign: 'right'},
+  text: {textAlign: 'center'},
+  btn: {},
+  btnText: {textAlign: 'center'},
+});

@@ -118,4 +118,7 @@ export default MorningCheckStyle = StyleSheet.create({
     marginBottom: 30,
     color: '#a1a1a1',
   },
+  inputTable: {
+    height: 40,
+  },
 });
